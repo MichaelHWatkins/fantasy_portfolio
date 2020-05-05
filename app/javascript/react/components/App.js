@@ -1,7 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import BracketIndexContainer from './BracketIndexContainer'
+import BracketShowContainer from './BracketShowContainer'
 
 export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={BracketIndexContainer} />
+          <Route exact path='/brackets' component={BracketIndexContainer} />
+          <Route exact path='/brackets/:id' component={BracketShowContainer} />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  )
 }
 
 export default App
