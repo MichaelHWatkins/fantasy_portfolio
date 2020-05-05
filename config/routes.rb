@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  root 'brackets#index'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :brackets, only: [:index, :create, :show] do
+        resources :portfolios
+      end
+    end
+  end
+
+  resources :brackets, only: [:index, :show] do
+    resources :portfolios
+  end
+
+
+
 end

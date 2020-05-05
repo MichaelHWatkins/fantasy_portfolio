@@ -1,0 +1,33 @@
+:root {
+  --red: #bf0413;
+  --blue: #295fa6;
+  --ivory: #FBF5F3;
+  --green: #008000;
+
+}
+
+body {
+  background-color: var(--ivory);
+  font-family: !important 'Roboto Slab', serif;
+}
+
+.nav,
+.top-bar {
+  background-color: var(--red);
+}
+
+.top-bar ul{
+  background-color: var(--red);
+}
+
+a {
+  color: black
+}
+
+div.item {
+  background-color: var(--blue)
+}
+
+form {
+  background-color: var(--green)
+}
