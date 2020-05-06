@@ -3,5 +3,6 @@ class Stock < ApplicationRecord
   validates :value, presence: true
   validates :symbol, presence: true
 
+  has_many :ledgers
   has_many :portfolios, through: :ledgers
 end
