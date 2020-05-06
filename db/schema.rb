@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_145048) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "portfolio_name", null: false
-    t.integer "total_value", null: false
+    t.integer "total_value"
     t.string "bio", null: false
     t.string "strategy", null: false
     t.bigint "bracket_id", null: false

@@ -26,7 +26,6 @@ const BracketIndexContainer = props => {
   }, [])
 
   const addNewBracket = (formPayload) => {
-    let id = props.match.params.id
     fetch(`/api/v1/brackets.json`, {
       credentials: "same-origin",
       method: "POST",
