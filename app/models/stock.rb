@@ -1,8 +1,5 @@
 class Stock < ApplicationRecord
-  validates :name, presence: true
   validates :value, presence: true
   validates :symbol, presence: true
-
-  has_many :ledgers
-  has_many :portfolios, through: :ledgers
+  belongs_to :portfolio
 end

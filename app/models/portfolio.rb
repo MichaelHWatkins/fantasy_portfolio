@@ -3,7 +3,7 @@ class Portfolio < ApplicationRecord
   validates :bio, presence: true
   validates :strategy, presence: true
 
-  has_many :ledgers
-  has_many :stocks, through: :ledgers
+
+  has_many :stocks
   belongs_to :bracket
 end

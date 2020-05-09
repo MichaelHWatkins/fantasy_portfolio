@@ -1,15 +1,14 @@
 import React, {useState, useEffect } from 'react'
 
-import PortfolioTile from './PortfolioTile'
-import PortfolioFormTile from './PortfolioFormTile'
+import StockTile from './StockTile'
+import StockFormTile from './StockFormTile'
 
-const BracketShowContainer = props => {
-
-  const [ portfolios, setPortfolios ] = useState([])
-  const [ bracket, setBracket ] = useState({})
+const PortfolioShowContainer = props => {
+  const [ stocks, setStocks ] = useState([])
   useEffect(() => {
     let id = props.match.params.id
-    fetch(`/api/v1/brackets/${id}`)
+    let bracket_id = props.match.params.bracket_id
+    fetch(`/api/v1/brackets/${bracket_id}/portfolios/${id}/stocks`)
     .then((response) => {
       if (response.ok) {
         return response
@@ -23,15 +22,15 @@ const BracketShowContainer = props => {
       return response.json()
     })
     .then((body) => {
-      setBracket(body.bracket)
-      setPortfolios(body.portfolios)
+      setStocks(body)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  const addNewPortfolio = (formPayload) => {
-    let id = props.match.params.id
-    fetch(`/api/v1/brackets/${id}/portfolios.json`, {
+  const addNewStock = (formPayload) => {
+    let bracket_id = props.match.params.bracket_id
+    let portfolio_id = props.match.params.id
+    fetch(`/api/v1/brackets/${bracket_id}/portfolios/${portfolio_id}/stocks`, {
       credentials: "same-origin",
       method: "POST",
       body: JSON.stringify(formPayload),
@@ -39,7 +38,7 @@ const BracketShowContainer = props => {
         "Accept": "application/json",
         "Content-Type": "application/json"
       }
-    })
+    }) 
     .then((response) => {
       if (response.ok) {
         return response
@@ -51,32 +50,30 @@ const BracketShowContainer = props => {
     })
     .then((response) => response.json())
     .then(body => {
-      setPortfolios([
-        ...portfolios,
+      setStocks([
+        ...stocks,
         body
       ])
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
-
-  let portfolioArray = ""
-  if (portfolios.length > 0) {
-    portfolioArray = portfolios.map((portfolio) => {
+  let stockArray = ""
+  if (stocks.length > 0) {
+    stockArray = stocks.map((option) => {
       return(
-        <PortfolioTile key={portfolio.id} portfolio={portfolio} />
+        <StockTile key={option.id} option={option} />
       )
     })
   }
-
   return(
     <div>
-    <h1>Portfolios</h1>
-    <PortfolioFormTile
-    addNewPortfolio={addNewPortfolio}
+    <h1>Stocks</h1>
+    <StockFormTile
+    addNewStock={addNewStock}
     />
-    {portfolioArray}
+    {stockArray}
     </div>
   )
 }
 
-export default BracketShowContainer
+export default PortfolioShowContainer

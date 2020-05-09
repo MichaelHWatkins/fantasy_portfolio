@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/brackets/:id", to: "homes#index"
+  get "/brackets/:bracket_id/portfolios/:id", to: "homes#index"
+  get "/brackets/:bracket_id/portfolios/:portfolio_id/stocks", to: "homes#index"
 
   namespace :api do
     namespace :v1 do
       resources :brackets, only: [:index, :create, :show] do
-        resources :portfolios, only: [:create]
+        resources :portfolios, only: [:index, :create, :show] do
+          resources :stocks, only: [:index, :create]
+        end
       end
     end
   end

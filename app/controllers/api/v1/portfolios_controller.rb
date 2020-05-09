@@ -1,8 +1,11 @@
 class Api::V1::PortfoliosController < ApplicationController
 protect_from_forgery unless: -> { request.format.json? }
 
+  def show
+    render json: Portfolio.find(params[:id])
+  end
+
   def create
-    binding.pry
     portfolio = Portfolio.new(portfolio_params)
     bracket = Bracket.find(params[:bracket_id])
     portfolio.bracket = bracket
@@ -12,7 +15,7 @@ protect_from_forgery unless: -> { request.format.json? }
       render json: { error: portfolio.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
+  private
   def portfolio_params
     params.require(:portfolio).permit(:strategy, :portfolio_name, :bio)
   end
