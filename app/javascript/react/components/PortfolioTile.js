@@ -1,12 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const PortfolioTile = (props) => {
   return(
     <div className="item">
-    <p>{props.portfolio.portfolio_name}</p>
+    <Link to={`/brackets/${props.portfolio.bracket_id}/portfolios/${props.portfolio.id}/stocks`}>{props.portfolio.portfolio_name}</Link>
     <p>{props.portfolio.strategy}</p>
     </div>
   )
 }
-
 export default PortfolioTile
