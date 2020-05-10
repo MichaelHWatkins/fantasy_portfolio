@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from 'react'
-
+import {Redirect} from "react-router-dom"
 import StockTile from './StockTile'
 import StockFormTile from './StockFormTile'
 
 const PortfolioShowContainer = props => {
   const [ stocks, setStocks ] = useState([])
+  const [redirect, shouldRedirect] = useState(false)
+
   useEffect(() => {
     let id = props.match.params.id
     let bracket_id = props.match.params.bracket_id
@@ -65,6 +67,37 @@ const PortfolioShowContainer = props => {
       )
     })
   }
+
+  const deleteStock = () => {
+    let portfolio_id = props.match.params.id
+    let bracket_id = props.match.params.bracket_id
+    fetch(`/api/v1/brackets/${bracket_id}/portfolios/${portfolio_id}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+    .then(() => {
+      shouldRedirect(true)
+    })
+  }
+
+  if (redirect) {
+    return <Redirect to='/' />
+  }
+
+  const confirmDelete = () => {
+    let confirmMessage = confirm("Do you want to delete this item?")
+    if (confirmMessage === true) {
+      deleteStock()
+    }
+  }
+
+  let deleteButton = (
+       <button className="delete button" onClick={confirmDelete}>Delete Portfolio</button>
+     )
   return(
     <div>
     <h1>Stocks</h1>
@@ -72,6 +105,7 @@ const PortfolioShowContainer = props => {
     addNewStock={addNewStock}
     />
     {stockArray}
+    {deleteButton}
     </div>
   )
 }

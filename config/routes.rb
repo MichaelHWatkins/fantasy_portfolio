@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :brackets, only: [:index, :create, :show] do
-        resources :portfolios, only: [:index, :create, :show] do
+        resources :portfolios, only: [:index, :create, :show, :destroy] do
           resources :stocks, only: [:index, :create]
         end
       end

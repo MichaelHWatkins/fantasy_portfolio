@@ -64,6 +64,7 @@ const BracketShowContainer = props => {
     portfolioArray = portfolios.map((portfolio) => {
       return(
         <PortfolioTile key={portfolio.id} portfolio={portfolio} />
+
       )
     })
   }

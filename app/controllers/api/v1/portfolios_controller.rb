@@ -15,6 +15,13 @@ protect_from_forgery unless: -> { request.format.json? }
       render json: { error: portfolio.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @portfolio = Portfolio.find(params[:id])
+    @portfolio.destroy
+    render json: {}, status: :no_content
+  end
+
   private
   def portfolio_params
     params.require(:portfolio).permit(:strategy, :portfolio_name, :bio)
