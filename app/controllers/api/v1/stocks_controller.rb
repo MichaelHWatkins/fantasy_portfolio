@@ -28,5 +28,4 @@ protect_from_forgery unless: -> { request.format.json? }
       render json: { error: portfolio.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
 end
