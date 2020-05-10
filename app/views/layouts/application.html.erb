@@ -7,11 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <nav class="top-bar">
-    <h1><a href="/">FantasyPortfolio</a></h1>
 
+  <nav class="top-bar">
     <section class="top-bar-section">
+      <a href="/"><%= image_tag "logo.png"%></a>
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -32,14 +31,14 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
-  
-  <%- if Rails.env.development? || Rails.env.test? -%> 
+
+  <%- if Rails.env.development? || Rails.env.test? -%>
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
-  
+
   <%= yield :extra_footer %>
 </body>
 </html>
