@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_144843) do
   create_table "stocks", force: :cascade do |t|
     t.string "symbol", null: false
     t.integer "value", null: false
+    t.integer "points", null: false
     t.bigint "portfolio_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

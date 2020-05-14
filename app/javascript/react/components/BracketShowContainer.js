@@ -1,4 +1,5 @@
 import React, {useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 
 import PortfolioTile from './PortfolioTile'
 import PortfolioFormTile from './PortfolioFormTile'
@@ -76,6 +77,7 @@ const BracketShowContainer = props => {
     addNewPortfolio={addNewPortfolio}
     />
     {portfolioArray}
+    <Link to={`/`}>Back to Brackets</Link>
     </div>
   )
 }
