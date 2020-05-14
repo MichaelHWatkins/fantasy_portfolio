@@ -50,7 +50,7 @@ const StockShowContainer = props => {
        <button className="button" onClick={editStock}>Update Stock</button>
      )
   return (
-    <div>
+    <div className="Stats">
     <h1>Stock Stats</h1>
     <p>{stockInfo.symbol}</p>
     <p>{stockInfo.points}</p>
