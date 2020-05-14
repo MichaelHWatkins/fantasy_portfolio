@@ -2,14 +2,16 @@ import React, {useState, useEffect } from 'react'
 import {Redirect} from "react-router-dom"
 import StockTile from './StockTile'
 import StockFormTile from './StockFormTile'
+import {Link} from 'react-router-dom'
 
 const PortfolioShowContainer = props => {
   const [ stocks, setStocks ] = useState([])
   const [redirect, shouldRedirect] = useState(false)
 
+  let bracket_id = props.match.params.bracket_id
+
   useEffect(() => {
     let id = props.match.params.id
-    let bracket_id = props.match.params.bracket_id
     fetch(`/api/v1/brackets/${bracket_id}/portfolios/${id}/stocks`)
     .then((response) => {
       if (response.ok) {
@@ -98,6 +100,7 @@ const PortfolioShowContainer = props => {
   let deleteButton = (
        <button className="delete button" onClick={confirmDelete}>Delete Portfolio</button>
      )
+  
   return(
     <div>
     <h1>Stocks</h1>
@@ -106,6 +109,8 @@ const PortfolioShowContainer = props => {
     />
     {stockArray}
     {deleteButton}
+    <Link to={`/brackets/${bracket_id}`}>Back to Portfolios</Link>
+
     </div>
   )
 }

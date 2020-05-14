@@ -1,6 +1,6 @@
 class Api::V1::BracketsController < ApplicationController
+before_action :authenticate_user!
 protect_from_forgery unless: -> { request.format.json? }
-
 
   def index
     render json: Bracket.all

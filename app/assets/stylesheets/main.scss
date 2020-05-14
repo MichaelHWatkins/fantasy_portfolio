@@ -1,8 +1,8 @@
 :root {
   --red: #bf0413;
-  --blue: #295fa6;
+  --blue: #3895BA;
   --ivory: #FBF5F3;
-  --green: #008000;
+  --green: #6ADB0F;
 
 }
 
@@ -13,21 +13,33 @@ body {
 
 .nav,
 .top-bar {
-  background-color: var(--red);
+  background-color: black;
 }
 
 .top-bar ul{
-  background-color: var(--red);
+  background-color: black;
+}
+
+.top-bar a {
+  color: white;
 }
 
 a {
-  color: black
+  color: black;
 }
 
 div.item {
-  background-color: var(--blue)
+  background-color: var(--blue);
+  margin: 50px;
+  text-align: center;
 }
 
 form {
+  margin: 50px;
+  padding: 90px;
   background-color: var(--green)
+}
+
+.button {
+  background-color: var(--red);
 }
