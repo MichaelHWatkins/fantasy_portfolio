@@ -50,7 +50,7 @@ const PortfolioFormTile = (props) => {
   return(
     <form onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
-      <label htmlFor="portfolio_name">Name:
+      <label htmlFor="portfolio_name">Name of portfolio:
         <input
           type="text"
           name="portfolio_name"
@@ -59,7 +59,7 @@ const PortfolioFormTile = (props) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="strategy">Strategy:
+      <label htmlFor="strategy">Strategy of the portfolio:
         <input
           type="text"
           name="strategy"
@@ -68,7 +68,7 @@ const PortfolioFormTile = (props) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="bio">Bio:
+      <label htmlFor="bio">Bio of who made the portfolio:
         <input
           type="text"
           name="bio"

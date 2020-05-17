@@ -49,7 +49,7 @@ const BracketFormTile = (props) => {
     <form onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
 
-      <label htmlFor="bracket_name">Name:
+      <label htmlFor="bracket_name">Name of bracket:
         <input
           type="text"
           name="bracket_name"
@@ -58,7 +58,7 @@ const BracketFormTile = (props) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="bracket_bio">Rules:
+      <label htmlFor="bracket_bio">Rules for your bracket:
         <input
           type="text"
           name="bracket_bio"

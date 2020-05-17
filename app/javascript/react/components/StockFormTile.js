@@ -46,7 +46,7 @@ const StockFormTile = (props) => {
   <form onSubmit={handleSubmit}>
     <ErrorList errors={errors} />
 
-    <label htmlFor="name">Stock:
+    <label htmlFor="name">Stock Symbol:
       <input
         type="text"
         name="name"
