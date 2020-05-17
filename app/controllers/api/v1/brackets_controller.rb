@@ -22,6 +22,14 @@ protect_from_forgery unless: -> { request.format.json? }
     end
   end
 
+  def destroy
+    @bracket = Bracket.find(params[:id])
+    @bracket.destroy
+    render json: {}, status: :no_content
+  end
+
+  private
+
   def bracket_params
     params.require(:bracket).permit(:bracket_bio, :bracket_name)
   end

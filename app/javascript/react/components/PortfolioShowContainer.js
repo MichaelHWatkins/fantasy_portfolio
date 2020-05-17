@@ -98,7 +98,7 @@ const PortfolioShowContainer = props => {
   }
 
   let deleteButton = (
-       <button className="delete button" onClick={confirmDelete}>Delete Portfolio</button>
+       <button className="button" onClick={confirmDelete}>Delete Portfolio</button>
      )
 
 

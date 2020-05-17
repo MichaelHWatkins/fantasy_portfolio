@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
+import {Redirect} from "react-router-dom"
 
 import PortfolioTile from './PortfolioTile'
 import PortfolioFormTile from './PortfolioFormTile'
@@ -8,6 +9,8 @@ const BracketShowContainer = props => {
 
   const [ portfolios, setPortfolios ] = useState([])
   const [ bracket, setBracket ] = useState({})
+  const [redirect, shouldRedirect] = useState(false)
+
   useEffect(() => {
     let id = props.match.params.id
     fetch(`/api/v1/brackets/${id}`)
@@ -69,6 +72,35 @@ const BracketShowContainer = props => {
       )
     })
   }
+  const deleteBracket = () => {
+    let id = props.match.params.id
+    fetch(`/api/v1/brackets/${id}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+    .then(() => {
+      shouldRedirect(true)
+    })
+  }
+
+  if (redirect) {
+    return <Redirect to='/' />
+  }
+
+  const confirmDelete = () => {
+    let confirmMessage = confirm("Do you want to delete this item?")
+    if (confirmMessage === true) {
+      deleteBracket()
+    }
+  }
+
+  let deleteButtonBracket = (
+       <button className="button" onClick={confirmDelete}>Delete Bracket</button>
+     )
 
   return(
     <div>
@@ -77,6 +109,7 @@ const BracketShowContainer = props => {
     addNewPortfolio={addNewPortfolio}
     />
     {portfolioArray}
+    {deleteButtonBracket}
     <Link to={`/`}>Back to Brackets</Link>
     </div>
   )

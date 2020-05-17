@@ -3,8 +3,9 @@ import React, {useState, useEffect } from 'react'
 import BracketTile from './BracketTile'
 import BracketFormTile from './BracketFormTile'
 
-const BracketIndexContainer = props => {
+const BracketIndexContainer = (props) => {
   const [ brackets, setBrackets ] = useState([])
+
   useEffect(() => {
     fetch('/api/v1/brackets')
     .then((response) => {
