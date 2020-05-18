@@ -2,22 +2,23 @@
   --red: #bf0413;
   --blue: #3895BA;
   --ivory: #FBF5F3;
-  --green: #5EC327;
+  --green: #63A87B;
 
 }
 
 body {
   background-color: var(--ivory);
-  font-family: 'Impact', serif;
+  font-family: 'Arial', serif;
+  weight: Bold;
 }
 
 .nav,
 .top-bar {
-  background-color: black;
+  background-color: #313639;
 }
 
 .top-bar ul{
-  background-color: black;
+  background-color: #313639;
 }
 
 .top-bar a {
@@ -33,8 +34,8 @@ div.item {
   background-color: var(--blue);
   margin: 50px;
   text-align: center;
-  font-family: 'Impact', serif;
-
+  font-family: 'Arial', serif;
+  weight: Bold;
 }
 
 div.Stats {
@@ -43,7 +44,8 @@ div.Stats {
 
 h1 {
   text-align: center;
-  font-family: 'Impact', serif;
+  font-family: 'Arial', serif;
+  weight: Bold;
 }
 
 form {
