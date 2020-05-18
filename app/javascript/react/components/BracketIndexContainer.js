@@ -47,7 +47,6 @@ const BracketIndexContainer = (props) => {
     })
     .then((response) => response.json())
     .then(body => {
-      debugger
       setBrackets([
         ...brackets,
         body
