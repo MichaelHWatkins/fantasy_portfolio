@@ -21,9 +21,8 @@ before_action :authenticate_user!
     parsed_response = JSON.parse(api_response.body)
     day_key = parsed_response["Time Series (Daily)"].keys.first
     value = parsed_response["Time Series (Daily)"][day_key]["4. close"].to_f
-    points = value - value
     stock = Stock.new()
-    stock.points = points
+    stock.points = 0
     stock.value = value
     stock.symbol = ticker_name
     portfolio = Portfolio.find(params[:portfolio_id])
