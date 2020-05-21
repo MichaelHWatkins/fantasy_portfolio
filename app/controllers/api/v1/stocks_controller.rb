@@ -47,4 +47,11 @@ before_action :authenticate_user!
     stock.save
     render json: stock
   end
+
+  def destroy
+    @stock = Stock.find(params[:id])
+    @stock.destroy
+    render json: {}, status: :no_content
+  end
+
 end

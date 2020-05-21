@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :brackets, only: [:index, :create, :show, :destroy] do
         resources :portfolios, only: [:index, :create, :show, :destroy] do
-          resources :stocks, only: [:index, :create, :update, :show]
+          resources :stocks, only: [:index, :create, :update, :show, :destroy]
         end
       end
     end
