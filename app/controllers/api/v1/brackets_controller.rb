@@ -9,7 +9,7 @@ protect_from_forgery unless: -> { request.format.json? }
   def show
     bracket = Bracket.find(params[:id])
     portfolios = bracket.portfolios
-   render json: {bracket: bracket,
+    render json: {bracket: bracket,
       portfolios: portfolios}
   end
 
