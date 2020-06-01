@@ -35,7 +35,11 @@ RSpec.describe Api::V1::BracketsController, type: :controller do
 
       expect(parsed_response).to be_kind_of(Hash)
       expect(parsed_response).to have_key 'portfolios'
-
+      expect(parsed_response['portfolios'][0]).to be_kind_of(Hash)
+      expect(parsed_response['portfolios'].length).to eq 1
+      expect(parsed_response['bracket']["id"]).to eq bracket.id
+      expect(parsed_response['bracket']["bracket_name"]).to eq bracket.bracket_name
+      expect(parsed_response['bracket']['bracket_bio']).to eq bracket.bracket_bio
 
     end
   end
