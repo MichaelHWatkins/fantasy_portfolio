@@ -43,4 +43,30 @@ RSpec.describe Api::V1::BracketsController, type: :controller do
 
     end
   end
+
+  describe 'POST#create' do
+    let!(:good_bracket_data){{bracket:{bracket_name: "created bracket", bracket_bio: "created bio"}}}
+    it "creates a new bracket" do
+      sign_in user
+      prev_count = Bracket.count
+      post :create, params: good_bracket_data, format: :json
+      new_count = Bracket.count
+      returned_json = JSON.parse(response.body)
+
+      expect(new_count).to eq(prev_count + 1)
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+    end
+  end
+
+  describe 'DELETE#destroy' do
+    let!(:bracket1){Bracket.create(bracket_name: "Work", bracket_bio: "for testing at work")}
+    it 'deletes a bracket' do
+      sign_in user
+      previous_count = Bracket.count
+      delete :destroy, params: {id: bracket1.id}
+      new_count = Bracket.count
+      expect(new_count).to eq (previous_count - 1)
+    end
+  end
 end
