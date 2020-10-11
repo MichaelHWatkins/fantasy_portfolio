@@ -1,4 +1,3 @@
-My resume app was built to offer some insight into the progress I have made as a developer since graduation, as well as an easy and seamless way to review my resume. I have put extended effort into improving my CSS skills, and gotten more practice with some of my back end development abilities. Enjoy!
 
 Built using the following technologies:
 
