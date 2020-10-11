@@ -1,24 +1,17 @@
-# README
+My resume app was built to offer some insight into the progress I have made as a developer since graduation, as well as an easy and seamless way to review my resume. I have put extended effort into improving my CSS skills, and gotten more practice with some of my back end development abilities. Enjoy!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built using the following technologies:
 
-Things you may want to cover:
+Ruby on Rails Javascript React.js CSS HTML ActiveRecord ReactPlayer
 
-* Ruby version
+Ruby version : 2.6.5
 
-* System dependencies
+Authored by: Michael Watkins
 
-* Configuration
+Built With: -React.js -Ruby on Rails -PostgreSQL 12
 
-* Database creation
+Getting Started: The setup steps expect the following tools/versions:
 
-* Database initialization
+Ruby 2.6.5 Rails 5.2.4.2 PostgreSQL 12 Checkout the repository git clone https://github.com/MichaelHWatkins/fantasy_portfolio.git Create and setup the database bundle exec rake db:setup" Run the test suite bundle exec rspec Start the Rails server and webpack-dev-server bundle exec rails s yarn run start The application can be accessed via http://localhost:3000
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Description: Fantasy Portolio is a game much like Fantasy Football whereby players choose a company or friend bracket, make a portfolio for themselves, and add stocks that are updated in realtime. The more the stock gains in value the more points a player recieves. Check back after make the portfolio in subsequent days to see the stocks grow! This was a first attempt at a solo project with a limited time frame of a two week window to create.
